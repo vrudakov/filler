@@ -82,6 +82,24 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/nfs/2016/v/vrudakov/filler/includes/filler.h">
+			<Option target="vrudakov.filler"/>
+		</Unit>
+		<Unit filename="/nfs/2016/v/vrudakov/filler/libft/ft_atoi.c">
+			<Option target="vrudakov.filler"/>
+		</Unit>
+		<Unit filename="/nfs/2016/v/vrudakov/filler/libft/libft.h">
+			<Option target="vrudakov.filler"/>
+		</Unit>
+		<Unit filename="/nfs/2016/v/vrudakov/filler/src/get_next_line.c">
+			<Option target="vrudakov.filler"/>
+		</Unit>
+		<Unit filename="/nfs/2016/v/vrudakov/filler/src/main.c">
+			<Option target="vrudakov.filler"/>
+		</Unit>
+		<Unit filename="/nfs/2016/v/vrudakov/filler/src/second.c">
+			<Option target="vrudakov.filler"/>
+		</Unit>
 		<Unit filename="/nfs/2016/v/vrudakov/filler/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

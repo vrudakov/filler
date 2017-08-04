@@ -123,6 +123,114 @@ vrudakov.filler/fast:
 	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/build
 .PHONY : vrudakov.filler/fast
 
+libft/ft_atoi.o: libft/ft_atoi.c.o
+
+.PHONY : libft/ft_atoi.o
+
+# target to build an object file
+libft/ft_atoi.c.o:
+	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.o
+.PHONY : libft/ft_atoi.c.o
+
+libft/ft_atoi.i: libft/ft_atoi.c.i
+
+.PHONY : libft/ft_atoi.i
+
+# target to preprocess a source file
+libft/ft_atoi.c.i:
+	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.i
+.PHONY : libft/ft_atoi.c.i
+
+libft/ft_atoi.s: libft/ft_atoi.c.s
+
+.PHONY : libft/ft_atoi.s
+
+# target to generate assembly for a file
+libft/ft_atoi.c.s:
+	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.s
+.PHONY : libft/ft_atoi.c.s
+
+src/get_next_line.o: src/get_next_line.c.o
+
+.PHONY : src/get_next_line.o
+
+# target to build an object file
+src/get_next_line.c.o:
+	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.o
+.PHONY : src/get_next_line.c.o
+
+src/get_next_line.i: src/get_next_line.c.i
+
+.PHONY : src/get_next_line.i
+
+# target to preprocess a source file
+src/get_next_line.c.i:
+	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.i
+.PHONY : src/get_next_line.c.i
+
+src/get_next_line.s: src/get_next_line.c.s
+
+.PHONY : src/get_next_line.s
+
+# target to generate assembly for a file
+src/get_next_line.c.s:
+	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.s
+.PHONY : src/get_next_line.c.s
+
+src/main.o: src/main.c.o
+
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.c.o:
+	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/main.c.o
+.PHONY : src/main.c.o
+
+src/main.i: src/main.c.i
+
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.c.i:
+	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/main.c.i
+.PHONY : src/main.c.i
+
+src/main.s: src/main.c.s
+
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.c.s:
+	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/main.c.s
+.PHONY : src/main.c.s
+
+src/second.o: src/second.c.o
+
+.PHONY : src/second.o
+
+# target to build an object file
+src/second.c.o:
+	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/second.c.o
+.PHONY : src/second.c.o
+
+src/second.i: src/second.c.i
+
+.PHONY : src/second.i
+
+# target to preprocess a source file
+src/second.c.i:
+	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/second.c.i
+.PHONY : src/second.c.i
+
+src/second.s: src/second.c.s
+
+.PHONY : src/second.s
+
+# target to generate assembly for a file
+src/second.c.s:
+	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/second.c.s
+.PHONY : src/second.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -132,6 +240,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... vrudakov.filler"
+	@echo "... libft/ft_atoi.o"
+	@echo "... libft/ft_atoi.i"
+	@echo "... libft/ft_atoi.s"
+	@echo "... src/get_next_line.o"
+	@echo "... src/get_next_line.i"
+	@echo "... src/get_next_line.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
+	@echo "... src/second.o"
+	@echo "... src/second.i"
+	@echo "... src/second.s"
 .PHONY : help
 
 

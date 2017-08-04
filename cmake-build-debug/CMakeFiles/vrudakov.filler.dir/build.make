@@ -57,7 +57,131 @@ include CMakeFiles/vrudakov.filler.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/vrudakov.filler.dir/flags.make
 
-CMakeFiles/vrudakov.filler.dir/requires:
+CMakeFiles/vrudakov.filler.dir/src/second.c.o: CMakeFiles/vrudakov.filler.dir/flags.make
+CMakeFiles/vrudakov.filler.dir/src/second.c.o: ../src/second.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/v/vrudakov/filler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/vrudakov.filler.dir/src/second.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/vrudakov.filler.dir/src/second.c.o   -c /nfs/2016/v/vrudakov/filler/src/second.c
+
+CMakeFiles/vrudakov.filler.dir/src/second.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/vrudakov.filler.dir/src/second.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /nfs/2016/v/vrudakov/filler/src/second.c > CMakeFiles/vrudakov.filler.dir/src/second.c.i
+
+CMakeFiles/vrudakov.filler.dir/src/second.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/vrudakov.filler.dir/src/second.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /nfs/2016/v/vrudakov/filler/src/second.c -o CMakeFiles/vrudakov.filler.dir/src/second.c.s
+
+CMakeFiles/vrudakov.filler.dir/src/second.c.o.requires:
+
+.PHONY : CMakeFiles/vrudakov.filler.dir/src/second.c.o.requires
+
+CMakeFiles/vrudakov.filler.dir/src/second.c.o.provides: CMakeFiles/vrudakov.filler.dir/src/second.c.o.requires
+	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/second.c.o.provides.build
+.PHONY : CMakeFiles/vrudakov.filler.dir/src/second.c.o.provides
+
+CMakeFiles/vrudakov.filler.dir/src/second.c.o.provides.build: CMakeFiles/vrudakov.filler.dir/src/second.c.o
+
+
+CMakeFiles/vrudakov.filler.dir/src/main.c.o: CMakeFiles/vrudakov.filler.dir/flags.make
+CMakeFiles/vrudakov.filler.dir/src/main.c.o: ../src/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/v/vrudakov/filler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/vrudakov.filler.dir/src/main.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/vrudakov.filler.dir/src/main.c.o   -c /nfs/2016/v/vrudakov/filler/src/main.c
+
+CMakeFiles/vrudakov.filler.dir/src/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/vrudakov.filler.dir/src/main.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /nfs/2016/v/vrudakov/filler/src/main.c > CMakeFiles/vrudakov.filler.dir/src/main.c.i
+
+CMakeFiles/vrudakov.filler.dir/src/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/vrudakov.filler.dir/src/main.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /nfs/2016/v/vrudakov/filler/src/main.c -o CMakeFiles/vrudakov.filler.dir/src/main.c.s
+
+CMakeFiles/vrudakov.filler.dir/src/main.c.o.requires:
+
+.PHONY : CMakeFiles/vrudakov.filler.dir/src/main.c.o.requires
+
+CMakeFiles/vrudakov.filler.dir/src/main.c.o.provides: CMakeFiles/vrudakov.filler.dir/src/main.c.o.requires
+	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/main.c.o.provides.build
+.PHONY : CMakeFiles/vrudakov.filler.dir/src/main.c.o.provides
+
+CMakeFiles/vrudakov.filler.dir/src/main.c.o.provides.build: CMakeFiles/vrudakov.filler.dir/src/main.c.o
+
+
+CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.o: CMakeFiles/vrudakov.filler.dir/flags.make
+CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.o: ../src/get_next_line.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/v/vrudakov/filler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.o   -c /nfs/2016/v/vrudakov/filler/src/get_next_line.c
+
+CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /nfs/2016/v/vrudakov/filler/src/get_next_line.c > CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.i
+
+CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /nfs/2016/v/vrudakov/filler/src/get_next_line.c -o CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.s
+
+CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.o.requires:
+
+.PHONY : CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.o.requires
+
+CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.o.provides: CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.o.requires
+	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.o.provides.build
+.PHONY : CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.o.provides
+
+CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.o.provides.build: CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.o
+
+
+CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.o: CMakeFiles/vrudakov.filler.dir/flags.make
+CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.o: ../libft/ft_atoi.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/v/vrudakov/filler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.o   -c /nfs/2016/v/vrudakov/filler/libft/ft_atoi.c
+
+CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /nfs/2016/v/vrudakov/filler/libft/ft_atoi.c > CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.i
+
+CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /nfs/2016/v/vrudakov/filler/libft/ft_atoi.c -o CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.s
+
+CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.o.requires:
+
+.PHONY : CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.o.requires
+
+CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.o.provides: CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.o.requires
+	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.o.provides.build
+.PHONY : CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.o.provides
+
+CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.o.provides.build: CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.o
+
+
+# Object files for target vrudakov.filler
+vrudakov_filler_OBJECTS = \
+"CMakeFiles/vrudakov.filler.dir/src/second.c.o" \
+"CMakeFiles/vrudakov.filler.dir/src/main.c.o" \
+"CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.o" \
+"CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.o"
+
+# External object files for target vrudakov.filler
+vrudakov_filler_EXTERNAL_OBJECTS =
+
+vrudakov.filler: CMakeFiles/vrudakov.filler.dir/src/second.c.o
+vrudakov.filler: CMakeFiles/vrudakov.filler.dir/src/main.c.o
+vrudakov.filler: CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.o
+vrudakov.filler: CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.o
+vrudakov.filler: CMakeFiles/vrudakov.filler.dir/build.make
+vrudakov.filler: ../libft/libft.a
+vrudakov.filler: CMakeFiles/vrudakov.filler.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/nfs/2016/v/vrudakov/filler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable vrudakov.filler"
+	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vrudakov.filler.dir/link.txt --verbose=$(VERBOSE)
+
+# Rule to build all files generated by this target.
+CMakeFiles/vrudakov.filler.dir/build: vrudakov.filler
+
+.PHONY : CMakeFiles/vrudakov.filler.dir/build
+
+CMakeFiles/vrudakov.filler.dir/requires: CMakeFiles/vrudakov.filler.dir/src/second.c.o.requires
+CMakeFiles/vrudakov.filler.dir/requires: CMakeFiles/vrudakov.filler.dir/src/main.c.o.requires
+CMakeFiles/vrudakov.filler.dir/requires: CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.o.requires
+CMakeFiles/vrudakov.filler.dir/requires: CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.o.requires
 
 .PHONY : CMakeFiles/vrudakov.filler.dir/requires
 
