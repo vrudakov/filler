@@ -24,10 +24,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/vrudakov.filler.dir/progress.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/vrudakov.filler.dir/progress.make" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/vrudakov.filler.cbp" afterPath="$PROJECT_DIR$/cmake-build-debug/vrudakov.filler.cbp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/file.txt" afterPath="$PROJECT_DIR$/file.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/filler.trace" afterPath="$PROJECT_DIR$/filler.trace" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/filler.h" afterPath="$PROJECT_DIR$/includes/filler.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.c" afterPath="$PROJECT_DIR$/src/main.c" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -481,7 +477,7 @@
       <workItem from="1501789113136" duration="1740000" />
       <workItem from="1501805090133" duration="1176000" />
       <workItem from="1501806882428" duration="4711000" />
-      <workItem from="1501857150149" duration="5047000" />
+      <workItem from="1501857150149" duration="5076000" />
     </task>
     <task id="LOCAL-00001" summary="push from clion">
       <created>1501809142496</created>
@@ -511,11 +507,18 @@
       <option name="project" value="LOCAL" />
       <updated>1501809179910</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="push from clion">
+      <created>1501863635840</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1501863635840</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12674000" />
+    <option name="totallyTimeSpent" value="12703000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
