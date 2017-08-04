@@ -26,7 +26,7 @@ void    to_file(t_m *m, char *str)
     {
         if (ft_strstr(line, "$$$"))
         {
-            printf("\n%c\n", line[11]);
+            printf("/-------------%c-----/\n", line[10]);
         }
         fprintf(f, "%s\n", line);
     }
@@ -48,4 +48,4 @@ int     main(int argc,char **argv)
     m.p = 0;
     to_file(&m, argv[1]);
     return(0);
-}
+}*
