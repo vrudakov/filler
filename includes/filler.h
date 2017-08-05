@@ -18,6 +18,9 @@
 typedef struct  s_m
 {
     int     p;
+    int     size_x;
+    int     size_y;
+    char    **map;
 }               t_m;
 
 void  test(void);
