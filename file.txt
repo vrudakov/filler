@@ -1,0 +1,4 @@
+$$$ exec p2 : [resources/players/carli.filler]
+Plateau 15 17:
+Piece 1 2:
+**
