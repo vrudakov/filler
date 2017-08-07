@@ -15,7 +15,7 @@
 #include "../libft/libft.h"
 # define FD 3
 
-void	ind_size(t_m *m, char *line)
+void	ind_map_size(t_m *m, char *line)
 {
 	char	**split;
 	int		x;
@@ -36,6 +36,27 @@ void	ind_size(t_m *m, char *line)
 	free(split[2]);
 }
 
+void	ind_piece_size(t_m *m, char *line)
+{
+	char	**split;
+	int		x;
+
+	x = 0;
+	split = ft_strsplit(line, ' ');
+	m->p_size_y = atoi(split[1]);
+	m->p_size_x = atoi(split[2]);
+	m->piece = (char**)malloc(sizeof(char**) * m->p_size_y);
+	while (x < m->p_size_x)
+	{
+		m->piece[x] = (char*)malloc(sizeof(char*) * m->p_size_x);
+		x++;
+	}
+	m->piece[x] = NULL;
+	free(split[0]);
+	free(split[1]);
+	free(split[2]);
+}
+
 void	fill_map(t_m *m, char *line)
 {
 	int c;
@@ -48,6 +69,22 @@ void	fill_map(t_m *m, char *line)
 		m->map[c] = ft_strdup(line + 4);
 		c++;
 	}
+//	get_next_line(FD, &line);
+}
+
+void	fill_piece(t_m *m, char *line)
+{
+	int c;
+
+	c = 0;
+	get_next_line(FD, &line);
+	while (c < m->p_size_y)
+	{
+		get_next_line(FD, &line);
+		m->piece[c] = ft_strdup(line + 4);
+		c++;
+	}
+//	get_next_line(FD, &line);
 }
 
 void	to_file(t_m *m, char *str)
@@ -65,11 +102,18 @@ void	to_file(t_m *m, char *str)
 			if (ft_strstr(line, "$$$"))
 				m->p = line[10] - 48;
 			if (ft_strstr(line, "Plat"))
-				ind_size(m, line);
+				ind_map_size(m, line);
 		}
 		if (ft_strstr(line, "Plat"))
 			fill_map(m, line);
+		if (ft_strstr(line, "Pie"))
+		{
+			ind_piece_size(m, line);
+			fill_piece(m, line);
+		}
 	}
+
+	int i = 0;
 }
 
 int		main(int argc,char **argv)
