@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 #ifndef FDF_FDF_H
 # define FDF_FDF_H
+# define FD 3
 
 # include <stdio.h>
 #include "../libft/libft.h"
@@ -26,7 +27,14 @@ typedef struct  s_m
 	char    **piece;
 }               t_m;
 
-void  test(void);
+void	test(void);
 int		get_next_line(const int fd, char **line);
+
+void	ind_map_size(t_m *m, char *line);
+void	ind_piece_size(t_m *m, char *line);
+void	fill_map(t_m *m, char *line);
+void	fill_piece(t_m *m, char *line);
+void	to_file(t_m *m, char *str);
+
 
 #endif

@@ -10,7 +10,7 @@ set(SOURCE_FILES
         libft/ft_atoi.c
         includes/filler.h
         libft/libft.h
-        )
+        src/reading.c)
 
 add_executable(vrudakov.filler ${SOURCE_FILES})
 target_link_libraries(vrudakov.filler ${CMAKE_SOURCE_DIR}/libft/libft.a)

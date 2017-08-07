@@ -204,6 +204,33 @@ src/main.c.s:
 	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/main.c.s
 .PHONY : src/main.c.s
 
+src/reading.o: src/reading.c.o
+
+.PHONY : src/reading.o
+
+# target to build an object file
+src/reading.c.o:
+	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/reading.c.o
+.PHONY : src/reading.c.o
+
+src/reading.i: src/reading.c.i
+
+.PHONY : src/reading.i
+
+# target to preprocess a source file
+src/reading.c.i:
+	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/reading.c.i
+.PHONY : src/reading.c.i
+
+src/reading.s: src/reading.c.s
+
+.PHONY : src/reading.s
+
+# target to generate assembly for a file
+src/reading.c.s:
+	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/reading.c.s
+.PHONY : src/reading.c.s
+
 src/second.o: src/second.c.o
 
 .PHONY : src/second.o
@@ -249,6 +276,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/reading.o"
+	@echo "... src/reading.i"
+	@echo "... src/reading.s"
 	@echo "... src/second.o"
 	@echo "... src/second.i"
 	@echo "... src/second.s"
