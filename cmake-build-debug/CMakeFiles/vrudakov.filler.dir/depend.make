@@ -12,5 +12,9 @@ CMakeFiles/vrudakov.filler.dir/src/main.c.o: ../includes/filler.h
 CMakeFiles/vrudakov.filler.dir/src/main.c.o: ../libft/libft.h
 CMakeFiles/vrudakov.filler.dir/src/main.c.o: ../src/main.c
 
+CMakeFiles/vrudakov.filler.dir/src/reading.c.o: ../includes/filler.h
+CMakeFiles/vrudakov.filler.dir/src/reading.c.o: ../libft/libft.h
+CMakeFiles/vrudakov.filler.dir/src/reading.c.o: ../src/reading.c
+
 CMakeFiles/vrudakov.filler.dir/src/second.c.o: ../src/second.c
 

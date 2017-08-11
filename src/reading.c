@@ -48,9 +48,15 @@ void	fill_map(t_m *m, char *line)
 
 	c = 0;
 	get_next_line(FD, &line);
+
+//
+			fprintf(m->f, "%s\n", line);
+//
 	while (c < m->size_y)
 	{
 		get_next_line(FD, &line);
+		fprintf(m->f, "%s\n", line);
+
 		m->map[c] = ft_strdup(line + 4);
 		c++;
 	}
@@ -62,9 +68,13 @@ void	fill_piece(t_m *m, char *line)
 
 	c = 0;
 	get_next_line(FD, &line);
+	fprintf(m->f, "%s\n", line);
+
 	while (c < m->p_size_y)
 	{
 		get_next_line(FD, &line);
+		fprintf(m->f, "%s\n", line);
+
 		m->piece[c] = ft_strdup(line + 4);
 		c++;
 	}
