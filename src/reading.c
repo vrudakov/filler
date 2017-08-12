@@ -28,8 +28,8 @@ void	ind_piece_size(t_m *m, char *line)
 
 	x = 0;
 	split = ft_strsplit(line, ' ');
-	m->p_size_y = atoi(split[1]);
-	m->p_size_x = atoi(split[2]);
+	m->p_size_x = atoi(split[1]);
+	m->p_size_y = atoi(split[2]);
 	m->piece = (char**)malloc(sizeof(char**) * m->p_size_y);
 	while (x < m->p_size_x)
 	{
@@ -67,7 +67,7 @@ void	fill_piece(t_m *m, char *line)
 	int c;
 
 	c = 0;
-	get_next_line(FD, &line);
+//	get_next_line(FD, &line);
 	fprintf(m->f, "%s\n", line);
 
 	while (c < m->p_size_y)
@@ -75,7 +75,7 @@ void	fill_piece(t_m *m, char *line)
 		get_next_line(FD, &line);
 		fprintf(m->f, "%s\n", line);
 
-		m->piece[c] = ft_strdup(line + 4);
+		m->piece[c] = ft_strdup(line);
 		c++;
 	}
 }

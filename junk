@@ -1,0 +1,21 @@
+void	find_letter(t_m *m)
+{
+	t_coord	*c;
+
+	c = malloc(sizeof(t_coord));
+	c->x = 0;
+	c->y = 0;
+	if (m->p == 1)
+	{
+		while (m->map[c->y][c->x] < m->size_y)
+		{
+			if (m->map[c->y][c->x] == 'O')
+				try_incert(m);
+			if (c->x == m->size_x) {
+				c->y += 1;
+				c->x = 0;
+			}
+			c->x++;
+		}
+	}
+}

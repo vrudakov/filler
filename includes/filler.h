@@ -22,6 +22,12 @@ typedef struct	s_coord
 	int	y;
 }				t_coord;
 
+typedef struct	s_piece
+{
+	t_coord	*coords;
+	int 	ast;
+}				t_piece;
+
 typedef struct  s_m
 {
     int     p;
@@ -31,6 +37,9 @@ typedef struct  s_m
 	int     p_size_x;
 	int     p_size_y;
 	char    **piece;
+
+	t_piece	*pic;
+
 
 	FILE *f;
 }               t_m;

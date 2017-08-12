@@ -19,45 +19,91 @@
 // O - 79
 // X - 88
 
-void    find_letter(t_m *m)
+int		try_incert(t_m *m, int x, int y)
 {
-	t_coord	c;
-	c.x = 0;
-	c.y = 0;
-	if (m->p == 1)
-	{
-		while (m->map[c.y][c.x] != 'O')
-		{
-			c.x++;
-			if (c.x == m->size_x)
-				c.y += 1;
-		}
-	}
+	if ((m->map[y][x] != 'O' && m->p == 1) || (m->map[y][x] != 'X' && m->p == 2))
+		return (0);
+
+	return(1);
 }
+
+
 
 void	ft_think(t_m *m)
 {
-	find_letter(m);
+	int x;
+	int y;
+
+	x = 0;
+	y = 0;
+	while (y < m->size_x)
+	{
+		try_incert(m, x, y);
+		x++;
+		if (x == m->size_x)
+		{
+			y++;
+			x = 0;
+		}
+
+	}
+}
+
+int		count_ast(t_m *m)
+{
+	int x;
+	int y;
+	int ast;
+
+	ast = 0;
+	x = 0;
+	y = 0;
+	while (y < m->p_size_y)
+	{
+		if (m->piece[y][x] == '*')
+		{
+			m->pic->coords[ast].x = x;
+			m->pic->coords[ast].y = y;
+			ast++;
+		}
+		x++;
+		if (x == m->p_size_x + 1)
+		{
+			y++;
+			x = 0;
+		}
+
+	}
+	return (ast);
+}
+
+void	take_piece_info(t_m *m)
+{
+	m->pic = malloc(sizeof(m->pic->ast));
+	m->pic->ast = count_ast(m);
 }
 
 void ft_read(t_m *m, char *line)
 {
-	if (m->map == NULL)
+	while (get_next_line(FD, &line) > 0)
 	{
-		if (ft_strstr(line, "$$$")) {
-			m->p = line[10] - 48;
+		if (m->map == NULL)
+		{
+			if (ft_strstr(line, "$$$")) {
+				m->p = line[10] - 48;
+			}
+			if (ft_strstr(line, "Plat")) {
+				ind_map_size(m, line);
+			}
 		}
 		if (ft_strstr(line, "Plat")) {
-			ind_map_size(m, line);
+			fill_map(m, line);
 		}
-	}
-	if (ft_strstr(line, "Plat")) {
-		fill_map(m, line);
-	}
-	if (ft_strstr(line, "Pie"))
-	{
-		ind_piece_size(m, line);
-		fill_piece(m, line);
+		if (ft_strstr(line, "Pie"))
+		{
+			ind_piece_size(m, line);
+			fill_piece(m, line);
+		}
 	}
 }
 
@@ -75,6 +121,7 @@ void	to_file(t_m *m, char *str)
 	while (get_next_line(FD, &line) > 0)
 	{
 		ft_read(m, line);
+		take_piece_info(m);
 		ft_think(m);
 
 		fprintf(m->f, "%s\n", line);
