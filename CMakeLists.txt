@@ -1,16 +1,15 @@
-cmake_minimum_required(VERSION 3.7.2)
-project(vrudakov.filler)
+cmake_minimum_required(VERSION 3.7)
+project(filler)
 
-set(CMAKE_C_FLAGS "-std=c99")
+set(CMAKE_CXX_STANDARD 11)
 
 set(SOURCE_FILES
-        src/second.c
-        src/main.c
-        src/get_next_line.c
-        libft/ft_atoi.c
         includes/filler.h
-        libft/libft.h
-        src/reading.c)
+        includes/get_next_line.h
+        src/main.c
+        src/reading.c
+        src/second.c
+        libft/libft.a)
 
-add_executable(vrudakov.filler ${SOURCE_FILES})
-target_link_libraries(vrudakov.filler ${CMAKE_SOURCE_DIR}/libft/libft.a)
+add_executable(filler ${SOURCE_FILES})
+target_link_libraries(filler ${CMAKE_SOURCE_DIR}/libft.a)

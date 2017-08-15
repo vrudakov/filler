@@ -1,5 +1,6 @@
-seed = 3119
-X: error on input
-resources/players/hcao.filler won
+seed = 4708
+O: timedout
+X: timedout
+cmake-build-debug/vrudakov.filler won
 Score:
-1AGAINST28
+0AGAINST0

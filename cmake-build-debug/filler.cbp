@@ -83,16 +83,16 @@
 		<Unit filename="/Users/mf840/filler/includes/filler.h">
 			<Option target="filler"/>
 		</Unit>
-		<Unit filename="/Users/mf840/filler/libft/ft_atoi.c">
+		<Unit filename="/Users/mf840/filler/includes/get_next_line.h">
 			<Option target="filler"/>
 		</Unit>
-		<Unit filename="/Users/mf840/filler/libft/libft.h">
-			<Option target="filler"/>
-		</Unit>
-		<Unit filename="/Users/mf840/filler/src/get_next_line.c">
+		<Unit filename="/Users/mf840/filler/libft/libft.a">
 			<Option target="filler"/>
 		</Unit>
 		<Unit filename="/Users/mf840/filler/src/main.c">
+			<Option target="filler"/>
+		</Unit>
+		<Unit filename="/Users/mf840/filler/src/reading.c">
 			<Option target="filler"/>
 		</Unit>
 		<Unit filename="/Users/mf840/filler/src/second.c">

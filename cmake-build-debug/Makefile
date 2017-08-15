@@ -48,10 +48,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /nfs/2016/v/vrudakov/filler
+CMAKE_SOURCE_DIR = /Users/mf840/filler
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /nfs/2016/v/vrudakov/filler/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/mf840/filler/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /nfs/2016/v/vrudakov/filler/cmake-build-debug/CMakeFiles /nfs/2016/v/vrudakov/filler/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mf840/filler/cmake-build-debug/CMakeFiles /Users/mf840/filler/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /nfs/2016/v/vrudakov/filler/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mf840/filler/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,71 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named vrudakov.filler
+# Target rules for targets named filler
 
 # Build rule for target.
-vrudakov.filler: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vrudakov.filler
-.PHONY : vrudakov.filler
+filler: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 filler
+.PHONY : filler
 
 # fast build rule for target.
-vrudakov.filler/fast:
-	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/build
-.PHONY : vrudakov.filler/fast
-
-libft/ft_atoi.o: libft/ft_atoi.c.o
-
-.PHONY : libft/ft_atoi.o
-
-# target to build an object file
-libft/ft_atoi.c.o:
-	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.o
-.PHONY : libft/ft_atoi.c.o
-
-libft/ft_atoi.i: libft/ft_atoi.c.i
-
-.PHONY : libft/ft_atoi.i
-
-# target to preprocess a source file
-libft/ft_atoi.c.i:
-	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.i
-.PHONY : libft/ft_atoi.c.i
-
-libft/ft_atoi.s: libft/ft_atoi.c.s
-
-.PHONY : libft/ft_atoi.s
-
-# target to generate assembly for a file
-libft/ft_atoi.c.s:
-	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/libft/ft_atoi.c.s
-.PHONY : libft/ft_atoi.c.s
-
-src/get_next_line.o: src/get_next_line.c.o
-
-.PHONY : src/get_next_line.o
-
-# target to build an object file
-src/get_next_line.c.o:
-	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.o
-.PHONY : src/get_next_line.c.o
-
-src/get_next_line.i: src/get_next_line.c.i
-
-.PHONY : src/get_next_line.i
-
-# target to preprocess a source file
-src/get_next_line.c.i:
-	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.i
-.PHONY : src/get_next_line.c.i
-
-src/get_next_line.s: src/get_next_line.c.s
-
-.PHONY : src/get_next_line.s
-
-# target to generate assembly for a file
-src/get_next_line.c.s:
-	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/get_next_line.c.s
-.PHONY : src/get_next_line.c.s
+filler/fast:
+	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/build
+.PHONY : filler/fast
 
 src/main.o: src/main.c.o
 
@@ -183,7 +129,7 @@ src/main.o: src/main.c.o
 
 # target to build an object file
 src/main.c.o:
-	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/main.c.o
+	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/src/main.c.o
 .PHONY : src/main.c.o
 
 src/main.i: src/main.c.i
@@ -192,7 +138,7 @@ src/main.i: src/main.c.i
 
 # target to preprocess a source file
 src/main.c.i:
-	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/main.c.i
+	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/src/main.c.i
 .PHONY : src/main.c.i
 
 src/main.s: src/main.c.s
@@ -201,7 +147,7 @@ src/main.s: src/main.c.s
 
 # target to generate assembly for a file
 src/main.c.s:
-	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/main.c.s
+	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/src/main.c.s
 .PHONY : src/main.c.s
 
 src/reading.o: src/reading.c.o
@@ -210,7 +156,7 @@ src/reading.o: src/reading.c.o
 
 # target to build an object file
 src/reading.c.o:
-	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/reading.c.o
+	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/src/reading.c.o
 .PHONY : src/reading.c.o
 
 src/reading.i: src/reading.c.i
@@ -219,7 +165,7 @@ src/reading.i: src/reading.c.i
 
 # target to preprocess a source file
 src/reading.c.i:
-	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/reading.c.i
+	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/src/reading.c.i
 .PHONY : src/reading.c.i
 
 src/reading.s: src/reading.c.s
@@ -228,7 +174,7 @@ src/reading.s: src/reading.c.s
 
 # target to generate assembly for a file
 src/reading.c.s:
-	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/reading.c.s
+	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/src/reading.c.s
 .PHONY : src/reading.c.s
 
 src/second.o: src/second.c.o
@@ -237,7 +183,7 @@ src/second.o: src/second.c.o
 
 # target to build an object file
 src/second.c.o:
-	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/second.c.o
+	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/src/second.c.o
 .PHONY : src/second.c.o
 
 src/second.i: src/second.c.i
@@ -246,7 +192,7 @@ src/second.i: src/second.c.i
 
 # target to preprocess a source file
 src/second.c.i:
-	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/second.c.i
+	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/src/second.c.i
 .PHONY : src/second.c.i
 
 src/second.s: src/second.c.s
@@ -255,7 +201,7 @@ src/second.s: src/second.c.s
 
 # target to generate assembly for a file
 src/second.c.s:
-	$(MAKE) -f CMakeFiles/vrudakov.filler.dir/build.make CMakeFiles/vrudakov.filler.dir/src/second.c.s
+	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/src/second.c.s
 .PHONY : src/second.c.s
 
 # Help Target
@@ -266,13 +212,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... vrudakov.filler"
-	@echo "... libft/ft_atoi.o"
-	@echo "... libft/ft_atoi.i"
-	@echo "... libft/ft_atoi.s"
-	@echo "... src/get_next_line.o"
-	@echo "... src/get_next_line.i"
-	@echo "... src/get_next_line.s"
+	@echo "... filler"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
