@@ -31,6 +31,7 @@ int		try_incert(t_m *m, int x, int y)
 	int	xn;
 	int	yn;
 	int t;
+    t_coord     c;
 
 	yn = 0;
 	t = 0;
@@ -42,7 +43,7 @@ int		try_incert(t_m *m, int x, int y)
 			if (m->map[y + yn][x + xn] == m->enmy)
 				return (0);
 			if (m->map[y + yn][x + xn] == m->iam && m->piece[yn][xn] == '*')
-				t++;
+                t++;
 			if (t > 1)
 				return (0);
 			xn++;
@@ -51,7 +52,7 @@ int		try_incert(t_m *m, int x, int y)
 	}
 	if (t == 1)
 	{
-		printf("%d %d", x ,y);
+		printf(">>>%d %d<<<", x ,y);
 		return(1);
 	}
 	return (0);
@@ -161,12 +162,13 @@ void	to_file(t_m *m, char *str)
 	{
 		ft_read(m, line);
 		take_piece_info(m);
+
 		ft_think(m);
 
 		fprintf(m->f, "%s\n", line);
 
 
-		write(1, "8 2\n", 4);
+//		write(1, "8 2\n", 4);
 	}
 	fclose(m->f);
 }
