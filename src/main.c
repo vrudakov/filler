@@ -13,6 +13,7 @@
 #include <fcntl.h>
 #include "../includes/filler.h"
 #include "../libft/libft.h"
+#include <sys/socket.h>
 
 // * - 42
 // . - 46
@@ -52,7 +53,11 @@ int		try_incert(t_m *m, int x, int y)
 	}
 	if (t == 1)
 	{
-		printf(">>>%d %d<<<", x ,y);
+		ft_putnbr(y);
+		write(1, " ", 1);
+		ft_putnbr(x);
+		write(1, "\n", 1);
+//		printf(">>>%d %d<<<", x ,y);
 		return(1);
 	}
 	return (0);
@@ -60,24 +65,25 @@ int		try_incert(t_m *m, int x, int y)
 
 
 
-void	ft_think(t_m *m)
+int	ft_think(t_m *m)
 {
 	int x;
 	int y;
 
 	x = 0;
 	y = 0;
-	while (y < m->size_y - m->p_size_y)
+	while (y <= m->size_y - m->p_size_y)
 	{
 		if (try_incert(m, x, y))
-			return ;
+			return (0);
 		x++;
-		if (x == m->size_x - m->p_size_x)
+		if (x == m->size_x - m->p_size_x + 1)
 		{
 			y++;
 			x = 0;
 		}
 	}
+	return (1);
 }
 
 int		count_ast(t_m *m, int ind)
@@ -155,21 +161,48 @@ void	to_file(t_m *m, char *str)
 	fd = open("in.txt", O_RDONLY);
 
 	line = "\0";
-
 	m->f = fopen("file.txt", "w");
 
 	while (get_next_line(FD, &line) > 0)
 	{
-		ft_read(m, line);
+		fprintf(m->f, "%s\n", line);
+		if (m->map == NULL)
+		{
+			if (ft_strstr(line, "$$$"))
+			{
+				m->p = line[10] - 48;
+				if (m->p == 2)
+				{
+					m->iam = 'X';
+					m->enmy = 'O';
+				}
+				get_next_line(FD, &line);
+				fprintf(m->f, "%s\n", line);
+			}
+			if (ft_strstr(line, "Plat"))
+				ind_map_size(m, line);
+		}
+		if (ft_strstr(line, "Plat"))
+		{
+			fill_map(m, line);
+			get_next_line(FD, &line);
+			fprintf(m->f, "%s\n", line);
+		}
+		if (ft_strstr(line, "Pie"))
+		{
+			ind_piece_size(m, line);
+			fill_piece(m, line);
+		}
 		take_piece_info(m);
 
-		ft_think(m);
+		if (ft_think(m))
+			write(1, "0 0\n", 4);
 
-		fprintf(m->f, "%s\n", line);
 
 
 //		write(1, "8 2\n", 4);
 	}
+
 	fclose(m->f);
 }
 

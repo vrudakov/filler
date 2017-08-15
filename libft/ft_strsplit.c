@@ -1,88 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_newsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vrudakov <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vrudakov <vrudakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 09:44:41 by vrudakov          #+#    #+#             */
-/*   Updated: 2016/12/02 09:45:18 by vrudakov         ###   ########.fr       */
+/*   Updated: 2017/06/02 18:55:04 by vrudakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_count(char const *st, char c)
+static int		ft_length(char const *s, char c)
 {
-	int		i;
-	int		j;
+	int			j;
+	int			max;
 
+	if (ft_strlen(s) == 0)
+		return (0);
 	j = 0;
-	i = 0;
-	while (st[i] != '\0')
+	max = 0;
+	while (s[j] != '\0')
 	{
-		if (st[i] == c)
-			i++;
-		else
-		{
-			while (st[i] != c && st[i] != '\0')
-				i++;
-			j++;
-		}
+		if (s[j] == c && s[j - 1] != c)
+			max++;
+		j++;
 	}
-	return (j);
+	if (s[0] == c && s[j - 1] == c)
+		max--;
+	if (s[0] != c && s[j - 1] != c)
+		max++;
+	return (max);
 }
 
-static char	*ft_write(char const *s, int *i, char c)
+char			**ft_strsplit(char const *s, char c)
 {
-	char	*out;
-	int		count;
-	int		w;
+	char		**tab;
+	int			i;
+	int			j;
+	int			index;
 
-	w = 0;
-	count = *i;
-	while (s[count] != c && s[*i])
+	tab = NULL;
+	if (s)
 	{
-		count++;
-	}
-	out = (char*)malloc(sizeof(char) * (count + 1));
-	while (s[*i] != c && s[*i])
-	{
-		out[w] = s[*i];
-		w++;
-		*i += 1;
-	}
-	out[w] = '\0';
-	while (s[*i] == c && s[*i])
-		*i += 1;
-	return (out);
-}
-
-char		**ft_strsplit(char const *s, char c)
-{
-	char	**ret;
-	int		i;
-	int		j;
-	int		m;
-
-	j = 0;
-	i = 0;
-	if (!s)
-		return (NULL);
-	m = ft_count(s, c);
-	ret = (char**)malloc(sizeof(s) * (m + 1));
-	if (!ret)
-		return (NULL);
-	while (s[i] != '\0' && j < m)
-	{
-		if (s[i] == c)
-			i++;
-		else
+		j = 0;
+		tab = (char **)malloc(sizeof(char *) * (ft_length(s, c) + 1));
+		i = 0;
+		while (s[i] != '\0')
 		{
-			ret[j] = ft_write(s, &i, c);
-			j++;
+			if (s[i] != c)
+			{
+				index = i;
+				while (s[i + 1] != c && s[i + 1] != '\0')
+					i++;
+				tab[j++] = ft_strsub(s, index, i - index + 1);
+			}
+			i++;
 		}
+		tab[j] = NULL;
 	}
-	ret[j] = NULL;
-	return (ret);
+	return (tab);
 }

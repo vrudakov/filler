@@ -8,8 +8,7 @@ set(SOURCE_FILES
         includes/get_next_line.h
         src/main.c
         src/reading.c
-        src/second.c
-        libft/libft.a)
+        src/second.c)
 
 add_executable(filler ${SOURCE_FILES})
-target_link_libraries(filler ${CMAKE_SOURCE_DIR}/libft.a)
+target_link_libraries(filler ${CMAKE_SOURCE_DIR}/libft/libft.a)
