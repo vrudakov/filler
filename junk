@@ -19,3 +19,54 @@ void	find_letter(t_m *m)
 		}
 	}
 }
+
+
+
+void ft_read(t_m *m, char *line)
+{
+	while (get_next_line(FD, &line) > 0)
+	{
+		if (m->map == NULL)
+		{
+			if (ft_strstr(line, "$$$"))
+			{
+				m->p = line[10] - 48;
+				if (m->p == 2)
+				{
+					m->iam = 'X';
+					m->enmy = 'O';
+				}
+			}
+			if (ft_strstr(line, "Plat"))
+				ind_map_size(m, line);
+		}
+		if (ft_strstr(line, "Plat"))
+			fill_map(m, line);
+		if (ft_strstr(line, "Pie"))
+		{
+			ind_piece_size(m, line);
+			fill_piece(m, line);
+		}
+	}
+}
+
+
+void	read_map(t_m *m, char *line)
+{
+	if (m->map == NULL)
+	{
+		if (ft_strstr(line, "$$$"))
+		{
+			m->p = line[10] - 48;
+			if (m->p == 2)
+			{
+				m->iam = 'X';
+				m->enmy = 'O';
+			}
+			get_next_line(FD, &line);
+			fprintf(m->f, "%s\n", line);
+		}
+		if (ft_strstr(line, "Plat"))
+			ind_map_size(m, line);
+	}
+}

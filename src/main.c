@@ -19,20 +19,26 @@
 // . - 46
 // O - 79
 // X - 88
+void	piece_tofile(char **p,int size)
+{
+	int yn;
+
+	yn = 0;
+	FILE*  fd;
+	fd = fopen("curent.txt", "w");
+	while (yn < size)
+	{
+		fprintf(fd, "%s\n", p[yn]);
+		yn++;
+	}
+	fclose(fd);
+}
 
 int		try_incert(t_m *m, int x, int y)
 {
-	/*
-	if ((m->map[y][x] != 'O' && m->p == 1) || (m->map[y][x] != 'X' && m->p == 2))
-		return (0);
-	if (m->pic->coords[0].x > x || m->pic->coords[0].y > y)
-		return (0);
-//	if ()
-	 */
 	int	xn;
 	int	yn;
 	int t;
-    t_coord     c;
 
 	yn = 0;
 	t = 0;
@@ -41,7 +47,7 @@ int		try_incert(t_m *m, int x, int y)
 		xn = 0;
 		while (xn < m->p_size_x)
 		{
-			if (m->map[y + yn][x + xn] == m->enmy)
+			if (m->map[y + yn][x + xn] == m->enmy && m->piece[yn][xn] != '.')
 				return (0);
 			if (m->map[y + yn][x + xn] == m->iam && m->piece[yn][xn] == '*')
                 t++;
@@ -57,7 +63,7 @@ int		try_incert(t_m *m, int x, int y)
 		write(1, " ", 1);
 		ft_putnbr(x);
 		write(1, "\n", 1);
-//		printf(">>>%d %d<<<", x ,y);
+		piece_tofile(m->piece, m->p_size_y);
 		return(1);
 	}
 	return (0);
@@ -74,6 +80,7 @@ int	ft_think(t_m *m)
 	y = 0;
 	while (y <= m->size_y - m->p_size_y)
 	{
+
 		if (try_incert(m, x, y))
 			return (0);
 		x++;
@@ -86,70 +93,34 @@ int	ft_think(t_m *m)
 	return (1);
 }
 
-int		count_ast(t_m *m, int ind)
+void	read_map(t_m *m, char *line)
 {
-	int x;
-	int y;
-	int ast;
-
-	ast = 0;
-	x = 0;
-	y = 0;
-	while (y < m->p_size_y)
+	if (m->map == NULL)
 	{
-		if (m->piece[y][x] == '*')
+		if (ft_strstr(line, "$$$"))
 		{
-			if (ind == 1)
+			m->p = line[10] - 48;
+			if (m->p == 2)
 			{
-				m->pic->coords[ast].x = x;
-				m->pic->coords[ast].y = y;
+				m->iam ='X';
+				m->enmy = 'O';
 			}
-			ast++;
-		}
-		x++;
-		if (x == m->p_size_x + 1)
-		{
-			y++;
-			x = 0;
-		}
-	}
-	return (ast);
-}
-
-void	take_piece_info(t_m *m)
-{
-	m->pic = malloc(sizeof(t_piece));
-	m->pic->ast = count_ast(m, 0);
-	m->pic->coords = malloc(sizeof(t_coord) * m->pic->ast);
-	count_ast(m, 1);
-
-}
-
-void ft_read(t_m *m, char *line)
-{
-	while (get_next_line(FD, &line) > 0)
-	{
-		if (m->map == NULL)
-		{
-			if (ft_strstr(line, "$$$"))
-			{
-				m->p = line[10] - 48;
-				if (m->p == 2)
-				{
-					m->iam = 'X';
-					m->enmy = 'O';
-				}
-			}
-			if (ft_strstr(line, "Plat"))
-				ind_map_size(m, line);
+			get_next_line(FD, &line);
+			fprintf(m->f, "%s\n", line);
 		}
 		if (ft_strstr(line, "Plat"))
-			fill_map(m, line);
-		if (ft_strstr(line, "Pie"))
-		{
-			ind_piece_size(m, line);
-			fill_piece(m, line);
-		}
+			ind_map_size(m, line);
+	}
+	if (ft_strstr(line, "Plat"))
+	{
+		fill_map(m, line);
+		get_next_line(FD, &line);
+		fprintf(m->f, "%s\n", line);
+	}
+	if (ft_strstr(line, "Pie"))
+	{
+		ind_piece_size(m, line);
+		fill_piece(m, line);
 	}
 }
 
@@ -166,41 +137,11 @@ void	to_file(t_m *m, char *str)
 	while (get_next_line(FD, &line) > 0)
 	{
 		fprintf(m->f, "%s\n", line);
-		if (m->map == NULL)
-		{
-			if (ft_strstr(line, "$$$"))
-			{
-				m->p = line[10] - 48;
-				if (m->p == 2)
-				{
-					m->iam = 'X';
-					m->enmy = 'O';
-				}
-				get_next_line(FD, &line);
-				fprintf(m->f, "%s\n", line);
-			}
-			if (ft_strstr(line, "Plat"))
-				ind_map_size(m, line);
-		}
-		if (ft_strstr(line, "Plat"))
-		{
-			fill_map(m, line);
-			get_next_line(FD, &line);
-			fprintf(m->f, "%s\n", line);
-		}
-		if (ft_strstr(line, "Pie"))
-		{
-			ind_piece_size(m, line);
-			fill_piece(m, line);
-		}
+		read_map(m, line);
 		take_piece_info(m);
 
 		if (ft_think(m))
 			write(1, "0 0\n", 4);
-
-
-
-//		write(1, "8 2\n", 4);
 	}
 
 	fclose(m->f);

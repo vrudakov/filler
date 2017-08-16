@@ -39,8 +39,8 @@ typedef struct  s_m
 	char    **piece;
 	char 	iam;
 	char 	enmy;
+	int		**i_map;
 	t_piece	*pic;
-
 
 	FILE *f;
 }               t_m;
@@ -54,5 +54,11 @@ void	fill_map(t_m *m, char *line);
 void	fill_piece(t_m *m, char *line);
 void	to_file(t_m *m, char *str);
 
+/**
+ *  piece_serv
+ */
+
+int		count_ast(t_m *m, int ind);
+void	take_piece_info(t_m *m);
 
 #endif

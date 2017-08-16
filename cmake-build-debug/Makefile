@@ -123,6 +123,33 @@ filler/fast:
 	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/build
 .PHONY : filler/fast
 
+piece_serv.o: piece_serv.c.o
+
+.PHONY : piece_serv.o
+
+# target to build an object file
+piece_serv.c.o:
+	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/piece_serv.c.o
+.PHONY : piece_serv.c.o
+
+piece_serv.i: piece_serv.c.i
+
+.PHONY : piece_serv.i
+
+# target to preprocess a source file
+piece_serv.c.i:
+	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/piece_serv.c.i
+.PHONY : piece_serv.c.i
+
+piece_serv.s: piece_serv.c.s
+
+.PHONY : piece_serv.s
+
+# target to generate assembly for a file
+piece_serv.c.s:
+	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/piece_serv.c.s
+.PHONY : piece_serv.c.s
+
 src/main.o: src/main.c.o
 
 .PHONY : src/main.o
@@ -213,6 +240,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... filler"
+	@echo "... piece_serv.o"
+	@echo "... piece_serv.i"
+	@echo "... piece_serv.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
