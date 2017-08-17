@@ -19,6 +19,15 @@
 // . - 46
 // O - 79
 // X - 88
+
+void	calc_cell(t_m *m)
+{
+	while (1)
+	{
+
+	}
+}
+
 void	piece_tofile(char **p,int size)
 {
 	int yn;
@@ -123,7 +132,10 @@ void	read_map(t_m *m, char *line)
 		fill_piece(m, line);
 	}
 }
-
+void    check_line(char *line)
+{
+    
+}
 void	to_file(t_m *m, char *str)
 {
 	char *line;

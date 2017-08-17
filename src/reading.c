@@ -18,7 +18,7 @@ void	ind_map_size(t_m *m, char *line)
 			printf("ALARM\n");
 		i++;
 	}
-	m->i_map[1] = (int*)malloc(sizeof(int) * m->size_x);
+	m->map[i] = (char*)malloc(sizeof(char));
 	m->map[i] = NULL;
 	free(split[0]);
 	free(split[1]);
@@ -40,6 +40,7 @@ void	ind_piece_size(t_m *m, char *line)
 		m->piece[y] = (char*)malloc(sizeof(char) * m->p_size_x + 1);
 		y++;
 	}
+	m->piece[y] = (char*)malloc(sizeof(char));
 	m->piece[y] = NULL;
 	free(split[0]);
 	free(split[1]);
@@ -69,9 +70,10 @@ void	fill_i_map(t_m *m)
 	for (int i = 0; i < m->size_y; i++) {
 		for (int j = 0; j < m->size_x; j++) {
 //			if (i != 1)
-//				printf("%d ", m->i_map[i][j]);
+				ft_putnbr(m->i_map[i][j]);
+
 		}
-//		printf("\n");
+		printf("\n");
 	}
 
 }
