@@ -42,6 +42,10 @@ typedef struct  s_m
 	int		**i_map;
 	t_piece	*pic;
 
+	int 	sum;
+	t_coord	pos;
+
+
 	FILE *f;
 }               t_m;
 
@@ -61,4 +65,6 @@ void	to_file(t_m *m, char *str);
 int		count_ast(t_m *m, int ind);
 void	take_piece_info(t_m *m);
 
+
+void	calc_cell(t_m *m);
 #endif

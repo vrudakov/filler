@@ -20,11 +20,69 @@
 // O - 79
 // X - 88
 
+void 	reload(t_m *m, int x, int y)
+{
+	if (m->i_map[y - 1][x - 1] == 0)
+		m->i_map[y - 1][x - 1] = m->i_map[y][x] + 1;
+	if (m->i_map[y][x - 1] == 0)
+		m->i_map[y][x - 1] = m->i_map[y][x] + 1;
+	if (m->i_map[y + 1][x - 1] == 0)
+		m->i_map[y + 1][x - 1] = m->i_map[y][x] + 1;
+	if (m->i_map[y - 1][x] == 0)
+		m->i_map[y - 1][x] = m->i_map[y][x] + 1;
+	if (m->i_map[y + 1][x] == 0)
+		m->i_map[y + 1][x] = m->i_map[y][x] + 1;
+	if (m->i_map[y][x + 1] == 0)
+		m->i_map[y][x + 1] = m->i_map[y][x] + 1;
+	if (m->i_map[y + 1][x + 1] == 0)
+		m->i_map[y + 1][x + 1] = m->i_map[y][x] + 1;
+	if (m->i_map[y - 1][x + 1] == 0)
+		m->i_map[y - 1][x + 1] = m->i_map[y][x] + 1;
+}
+int		find_zero(t_m *m)
+{
+	int x;
+	int y;
+
+	y = 0;
+	while (y < m->size_y)
+	{
+		x = 0;
+		while (x < m->size_x)
+		{
+			if (m->i_map[y][x] == 0)
+			{
+				return (0);
+			}
+			x++;
+		}
+		y++;
+	}
+	return (1);
+}
+
 void	calc_cell(t_m *m)
 {
+	int x;
+	int y;
+
+	y = 1;
 	while (1)
 	{
-
+		while (y < (m->size_y - 1))
+		{
+			x = 1;
+			while (x < (m->size_x - 1))
+			{
+				if (m->i_map[y][x] != 0)
+					reload(m, x, y);
+				x++;
+			}
+			y++;
+		}
+		y = 1;
+		if (find_zero(m))
+			return ;
 	}
 }
 
@@ -42,13 +100,31 @@ void	piece_tofile(char **p,int size)
 	}
 	fclose(fd);
 }
+int 	calc_sum(t_m *m)
+{
+	int	sum;
+	int	i;
+	int x;
+	int y;
+
+	i = 0;
+	sum = 0;
+	while (i < m->pic->ast)
+	{
+		x = m->pic->coords[i].x;
+		y = m->pic->coords[i].y;
+		sum += m->i_map[y][x];
+		i++;
+	}
+	return (sum);
+}
 
 int		try_incert(t_m *m, int x, int y)
 {
 	int	xn;
 	int	yn;
 	int t;
-
+	int new;
 	yn = 0;
 	t = 0;
 	while (yn < m->p_size_y)
@@ -66,6 +142,18 @@ int		try_incert(t_m *m, int x, int y)
 		}
 		yn++;
 	}
+
+	if (t == 1)
+	{
+		new = calc_sum(m);
+		if (new <= m->sum)
+		{
+			m->sum = new;
+			m->pos.x = x;
+			m->pos.y = y;
+		}
+	}
+	/*
 	if (t == 1)
 	{
 		ft_putnbr(y);
@@ -75,6 +163,7 @@ int		try_incert(t_m *m, int x, int y)
 		piece_tofile(m->piece, m->p_size_y);
 		return(1);
 	}
+	 */
 	return (0);
 }
 
@@ -89,9 +178,8 @@ int	ft_think(t_m *m)
 	y = 0;
 	while (y <= m->size_y - m->p_size_y)
 	{
-
-		if (try_incert(m, x, y))
-			return (0);
+		/*if (*/try_incert(m, x, y);/*)
+			return (0);*/
 		x++;
 		if (x == m->size_x - m->p_size_x + 1)
 		{
@@ -99,7 +187,13 @@ int	ft_think(t_m *m)
 			x = 0;
 		}
 	}
-	return (1);
+	if (m->sum == 1000000)
+		return (1);
+	ft_putnbr(m->pos.y);
+	write(1, " ", 1);
+	ft_putnbr(m->pos.x);
+	write(1, "\n", 1);
+	return (0);
 }
 
 void	read_map(t_m *m, char *line)
@@ -132,10 +226,7 @@ void	read_map(t_m *m, char *line)
 		fill_piece(m, line);
 	}
 }
-void    check_line(char *line)
-{
-    
-}
+
 void	to_file(t_m *m, char *str)
 {
 	char *line;
@@ -167,6 +258,7 @@ int		main(int argc,char **argv)
 	m.map = NULL;
 	m.iam = 'O';
 	m.enmy = 'X';
+	m.sum = 1000000;
 	to_file(&m, argv[1]);
 	return(0);
 }

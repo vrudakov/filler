@@ -58,7 +58,7 @@ void	fill_i_map(t_m *m)
 	{
 		if (m->map[y][x] == m->enmy)
 			m->i_map[y][x] = 1;
-		else if (y!=1)
+		else
 			m->i_map[y][x] = 0;
 		x++;
 		if (x == m->size_x + 1)
@@ -67,14 +67,14 @@ void	fill_i_map(t_m *m)
 			x = 0;
 		}
 	}
-	for (int i = 0; i < m->size_y; i++) {
-		for (int j = 0; j < m->size_x; j++) {
-//			if (i != 1)
-				ft_putnbr(m->i_map[i][j]);
-
-		}
-		printf("\n");
-	}
+	calc_cell(m);
+//	for (int i = 0; i < m->size_y; i++) {
+//		for (int j = 0; j < m->size_x; j++) {
+//				ft_putnbr(m->i_map[i][j]);
+//
+//		}
+//		printf("\n");
+//	}
 
 }
 
