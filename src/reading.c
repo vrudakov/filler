@@ -28,20 +28,20 @@ void	ind_map_size(t_m *m, char *line)
 void	ind_piece_size(t_m *m, char *line)
 {
 	char	**split;
-	int		y;
+	int		i;
 
-	y = 0;
+	i = 0;
 	split = ft_strsplit(line, ' ');
 	m->p_size_y = atoi(split[1]);
 	m->p_size_x = atoi(split[2]);
 	m->piece = (char**)malloc(sizeof(char*) * m->p_size_y + 1);
-	while (y < m->p_size_y)
+	while (i < m->p_size_y)
 	{
-		m->piece[y] = (char*)malloc(sizeof(char) * m->p_size_x + 1);
-		y++;
+		m->piece[i] = (char*)malloc(sizeof(char) * m->p_size_x + 1);
+		i++;
 	}
-	m->piece[y] = (char*)malloc(sizeof(char));
-	m->piece[y] = NULL;
+	m->piece[i] = (char*)malloc(sizeof(char));
+	m->piece[i] = NULL;
 	free(split[0]);
 	free(split[1]);
 	free(split[2]);
@@ -68,6 +68,7 @@ void	fill_i_map(t_m *m)
 		}
 	}
 	calc_cell(m);
+
 //	for (int i = 0; i < m->size_y; i++) {
 //		for (int j = 0; j < m->size_x; j++) {
 //				ft_putnbr(m->i_map[i][j]);
@@ -75,7 +76,6 @@ void	fill_i_map(t_m *m)
 //		}
 //		printf("\n");
 //	}
-
 }
 
 void	fill_map(t_m *m, char *line)
@@ -110,6 +110,7 @@ void	fill_piece(t_m *m, char *line)
 		m->piece[c] = ft_strdup(line);
 		c++;
 	}
+	m->piece[c] = NULL;
 	FILE *fn;
 	fn = fopen("piece.txt", "w");
 	c = 0;

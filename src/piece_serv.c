@@ -1,4 +1,4 @@
-#include "includes/filler.h"
+#include "../includes/filler.h"
 
 int		count_ast(t_m *m, int ind)
 {
@@ -7,25 +7,24 @@ int		count_ast(t_m *m, int ind)
 	int ast;
 
 	ast = 0;
-	x = 0;
 	y = 0;
 	while (y < m->p_size_y)
 	{
-		if (m->piece[y][x] == '*')
+		x = 0;
+		while (x < m->p_size_x)
 		{
-			if (ind == 1)
+			if (m->piece[y][x] == '*')
 			{
-				m->pic->coords[ast].x = x;
-				m->pic->coords[ast].y = y;
+				if (ind == 1)
+				{
+					m->pic->coords[ast].x = x;
+					m->pic->coords[ast].y = y;
+				}
+				ast++;
 			}
-			ast++;
+			x++;
 		}
-		x++;
-		if (x == m->p_size_x + 1)
-		{
-			y++;
-			x = 0;
-		}
+		y++;
 	}
 	return (ast);
 }

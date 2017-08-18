@@ -20,86 +20,20 @@
 // O - 79
 // X - 88
 
-void 	reload(t_m *m, int x, int y)
+
+void	piece_tofile(t_m *m)
 {
-	if (m->i_map[y - 1][x - 1] == 0)
-		m->i_map[y - 1][x - 1] = m->i_map[y][x] + 1;
-	if (m->i_map[y][x - 1] == 0)
-		m->i_map[y][x - 1] = m->i_map[y][x] + 1;
-	if (m->i_map[y + 1][x - 1] == 0)
-		m->i_map[y + 1][x - 1] = m->i_map[y][x] + 1;
-	if (m->i_map[y - 1][x] == 0)
-		m->i_map[y - 1][x] = m->i_map[y][x] + 1;
-	if (m->i_map[y + 1][x] == 0)
-		m->i_map[y + 1][x] = m->i_map[y][x] + 1;
-	if (m->i_map[y][x + 1] == 0)
-		m->i_map[y][x + 1] = m->i_map[y][x] + 1;
-	if (m->i_map[y + 1][x + 1] == 0)
-		m->i_map[y + 1][x + 1] = m->i_map[y][x] + 1;
-	if (m->i_map[y - 1][x + 1] == 0)
-		m->i_map[y - 1][x + 1] = m->i_map[y][x] + 1;
-}
-int		find_zero(t_m *m)
-{
-	int x;
-	int y;
-
-	y = 0;
-	while (y < m->size_y)
-	{
-		x = 0;
-		while (x < m->size_x)
-		{
-			if (m->i_map[y][x] == 0)
-			{
-				return (0);
-			}
-			x++;
-		}
-		y++;
-	}
-	return (1);
-}
-
-void	calc_cell(t_m *m)
-{
-	int x;
-	int y;
-
-	y = 1;
-	while (1)
-	{
-		while (y < (m->size_y - 1))
-		{
-			x = 1;
-			while (x < (m->size_x - 1))
-			{
-				if (m->i_map[y][x] != 0)
-					reload(m, x, y);
-				x++;
-			}
-			y++;
-		}
-		y = 1;
-		if (find_zero(m))
-			return ;
-	}
-}
-
-void	piece_tofile(char **p,int size)
-{
-	int yn;
-
-	yn = 0;
 	FILE*  fd;
 	fd = fopen("curent.txt", "w");
-	while (yn < size)
-	{
-		fprintf(fd, "%s\n", p[yn]);
-		yn++;
+	for (int i = 0; i < m->size_y; i++) {
+		for (int j = 0; j < m->size_x; j++) {
+			fprintf(fd, "%4d", m->i_map[i][j]);
+		}
+		fprintf(fd,"\n");
 	}
 	fclose(fd);
 }
+
 int 	calc_sum(t_m *m)
 {
 	int	sum;
@@ -146,12 +80,42 @@ int		try_incert(t_m *m, int x, int y)
 	if (t == 1)
 	{
 		new = calc_sum(m);
-		if (new <= m->sum)
+//		printf("Summ---> %d\n", new);
+
+		if (new <= m->sum && m->p == 1)
 		{
 			m->sum = new;
 			m->pos.x = x;
 			m->pos.y = y;
+//			printf("\n");
+//			printf("\n");
+//			for (int i = 0; i < m->size_y; i++) {
+//					for (int j = 0; j < m->size_x; j++) {
+//						printf(" %3d ", m->i_map[i][j]);
+//
+//					}
+//					printf("\n");
+//				}
+
+			FILE*  fd;
+			fd = fopen("curent.txt", "a");
+			fprintf(fd,"%d y - %d x - %d\n", new, y , x);
+			fclose(fd);
+
 		}
+		if (new < m->sum && m->p == 2)
+		{
+			m->sum = new;
+			m->pos.x = x;
+			m->pos.y = y;
+
+			FILE*  fd;
+			fd = fopen("curent.txt", "a");
+			fprintf(fd,"%d y - %d x - %d\n", new, y , x);
+			fclose(fd);
+
+		}
+
 	}
 	/*
 	if (t == 1)
@@ -165,6 +129,7 @@ int		try_incert(t_m *m, int x, int y)
 	}
 	 */
 	return (0);
+
 }
 
 
@@ -176,6 +141,7 @@ int	ft_think(t_m *m)
 
 	x = 0;
 	y = 0;
+//	piece_tofile(m);
 	while (y <= m->size_y - m->p_size_y)
 	{
 		/*if (*/try_incert(m, x, y);/*)
@@ -189,10 +155,18 @@ int	ft_think(t_m *m)
 	}
 	if (m->sum == 1000000)
 		return (1);
+
+	FILE*  fd;
+	fd = fopen("curent.txt", "a");
+	fprintf(fd,"best pos - x-%d y-%d \n", m->pos.y , m->pos.x);
+	fclose(fd);
+
 	ft_putnbr(m->pos.y);
 	write(1, " ", 1);
 	ft_putnbr(m->pos.x);
 	write(1, "\n", 1);
+	m->pos.y = 0;
+	m->pos.x = 0;
 	return (0);
 }
 
@@ -226,7 +200,6 @@ void	read_map(t_m *m, char *line)
 		fill_piece(m, line);
 	}
 }
-
 void	to_file(t_m *m, char *str)
 {
 	char *line;
@@ -239,6 +212,7 @@ void	to_file(t_m *m, char *str)
 
 	while (get_next_line(FD, &line) > 0)
 	{
+		m->sum = 1000000;
 		fprintf(m->f, "%s\n", line);
 		read_map(m, line);
 		take_piece_info(m);
@@ -258,7 +232,6 @@ int		main(int argc,char **argv)
 	m.map = NULL;
 	m.iam = 'O';
 	m.enmy = 'X';
-	m.sum = 1000000;
 	to_file(&m, argv[1]);
 	return(0);
 }
