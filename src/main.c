@@ -13,7 +13,6 @@
 #include <fcntl.h>
 #include "../includes/filler.h"
 #include "../libft/libft.h"
-#include <sys/socket.h>
 
 // * - 42
 // . - 46
@@ -34,7 +33,7 @@ void	piece_tofile(t_m *m)
 	fclose(fd);
 }
 
-int 	calc_sum(t_m *m)
+int 	calc_sum(t_m *m, int ix, int iy)
 {
 	int	sum;
 	int	i;
@@ -47,7 +46,7 @@ int 	calc_sum(t_m *m)
 	{
 		x = m->pic->coords[i].x;
 		y = m->pic->coords[i].y;
-		sum += m->i_map[y][x];
+		sum += m->i_map[y + iy][x + ix];
 		i++;
 	}
 	return (sum);
@@ -79,7 +78,7 @@ int		try_incert(t_m *m, int x, int y)
 
 	if (t == 1)
 	{
-		new = calc_sum(m);
+		new = calc_sum(m, x, y);
 //		printf("Summ---> %d\n", new);
 
 		if (new <= m->sum && m->p == 1)
@@ -103,6 +102,7 @@ int		try_incert(t_m *m, int x, int y)
 			fclose(fd);
 
 		}
+
 		if (new < m->sum && m->p == 2)
 		{
 			m->sum = new;
@@ -115,7 +115,6 @@ int		try_incert(t_m *m, int x, int y)
 			fclose(fd);
 
 		}
-
 	}
 	/*
 	if (t == 1)
