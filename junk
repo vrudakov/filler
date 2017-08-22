@@ -70,3 +70,32 @@ void	read_map(t_m *m, char *line)
 			ind_map_size(m, line);
 	}
 }
+
+
+
+
+
+//		printf("Summ---> %d\n", new);
+/*
+		if (new <= m->sum && m->p == 1)
+		{
+			m->sum = new;
+			m->pos.x = x;
+			m->pos.y = y;
+//			printf("\n");
+//			printf("\n");
+//			for (int i = 0; i < m->size_y; i++) {
+//					for (int j = 0; j < m->size_x; j++) {
+//						printf(" %3d ", m->i_map[i][j]);
+//
+//					}
+//					printf("\n");
+//				}
+
+			FILE*  fd;
+			fd = fopen("curent.txt", "a");
+			fprintf(fd,"%d y - %d x - %d\n", new, y , x);
+			fclose(fd);
+
+		}
+}

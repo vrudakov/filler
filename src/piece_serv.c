@@ -35,5 +35,4 @@ void	take_piece_info(t_m *m)
 	m->pic->ast = count_ast(m, 0);
 	m->pic->coords = malloc(sizeof(t_coord) * m->pic->ast);
 	count_ast(m, 1);
-
 }

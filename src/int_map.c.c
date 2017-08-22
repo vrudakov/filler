@@ -32,13 +32,6 @@ int		find_zero(t_m *m)
 		{
 			if (m->i_map[y][x] == 0)
 			{
-//				for (int i = 0; i < m->size_y; i++) {
-//					for (int j = 0; j < m->size_x; j++) {
-//						ft_putnbr(m->i_map[i][j]);
-//
-//					}
-//					printf("\n");
-//				}
 				return (0);
 			}
 			x++;
@@ -48,11 +41,32 @@ int		find_zero(t_m *m)
 	return (1);
 }
 
+int 	calc_sum(t_m *m, int ix, int iy)
+{
+	int	sum;
+	int	i;
+	int x;
+	int y;
+
+	i = 0;
+	sum = 0;
+	while (i < m->pic->ast)
+	{
+		x = m->pic->coords[i].x;
+		y = m->pic->coords[i].y;
+		sum += m->i_map[y + iy][x + ix];
+		i++;
+	}
+	return (sum);
+}
+
 void	calc_cell(t_m *m)
 {
 	int x;
 	int y;
+	int i;
 
+	i = 1;
 	y = 1;
 	while (1)
 	{
@@ -61,12 +75,15 @@ void	calc_cell(t_m *m)
 			x = 1;
 			while (x < (m->size_x - 1))
 			{
-				if (m->i_map[y][x] != 0)
+				if (m->i_map[y][x] == i)
+				{
 					reload(m, x, y);
+				}
 				x++;
 			}
 			y++;
 		}
+		i++;
 		y = 1;
 		if (find_zero(m))
 			return ;
