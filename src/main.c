@@ -6,20 +6,19 @@
 /*   By: vrudakov <vrudakov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/03 21:43:26 by vrudakov          #+#    #+#             */
-/*   Updated: 2017/08/03 21:43:29 by vrudakov         ###   ########.fr       */
+/*   Updated: 2017/08/23 21:21:50 by vrudakov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include "../includes/filler.h"
 
-
 int		try_incert(t_m *m, int x, int y)
 {
 	int	xn;
 	int	yn;
 	int t;
-	int new;
+
 	yn = 0;
 	t = 0;
 	while (yn < m->p_size_y)
@@ -30,7 +29,7 @@ int		try_incert(t_m *m, int x, int y)
 			if (m->map[y + yn][x + xn] == m->enmy && m->piece[yn][xn] != '.')
 				return (0);
 			if (m->map[y + yn][x + xn] == m->iam && m->piece[yn][xn] == '*')
-                t++;
+				t++;
 			if (t > 1)
 				return (0);
 			xn++;
@@ -38,19 +37,11 @@ int		try_incert(t_m *m, int x, int y)
 		yn++;
 	}
 	if (t == 1)
-	{
-		new = calc_sum(m, x, y);
-		if (new < m->sum)
-		{
-			m->sum = new;
-			m->pos.x = x;
-			m->pos.y = y;
-		}
-	}
+		renew(m, x, y);
 	return (0);
 }
 
-int	ft_think(t_m *m)
+int		ft_think(t_m *m)
 {
 	int x;
 	int y;
@@ -87,7 +78,7 @@ void	read_map(t_m *m, char *line)
 			m->p = line[10] - 48;
 			if (m->p == 2)
 			{
-				m->iam ='X';
+				m->iam = 'X';
 				m->enmy = 'O';
 			}
 			get_next_line(FD, &line);
@@ -112,26 +103,26 @@ void	to_file(t_m *m)
 	char *line;
 
 	line = "\0";
-
 	while (get_next_line(FD, &line) > 0)
 	{
 		m->sum = 1000000;
 		read_map(m, line);
 		take_piece_info(m);
-
 		if (ft_think(m))
 			write(1, "0 0\n", 4);
 	}
 }
 
-int		main(int argc,char **argv)
+int		main(int argc, char **argv)
 {
-	t_m  m;
+	t_m	m;
 
 	m.p = 0;
 	m.map = NULL;
 	m.iam = 'O';
 	m.enmy = 'X';
 	to_file(&m);
-	return(0);
+	(void)argv;
+	(void)argc;
+	return (0);
 }

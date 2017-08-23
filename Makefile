@@ -1,37 +1,45 @@
 NAME = vrudakov.filler
+
+SRC_PATH = ./src/
+OBJ_PATH = ./obj/
+LIB_PATH = ./libft/
+INC_PATH = ./includes/ ./libft/includes/
+OBJ_NAME =  $(SRC_NAME:.c=.o)
+SRC_NAME = int_map.c piece_serv.c reading.c main.c 
 LIBFT = libft.a
-SRC_PATH = src
-OBJ_PATH = obj
-SRC_NAME = second.c main.c 
+LIB_NAME = -lft
+
 FLAG = -Wall -Wextra -Werror
+CC = gcc -Ofast
 
+SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
+OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
+INC = $(addprefix -I,$(INC_PATH))
+LIB = $(addprefix -L,$(LIB_PATH))
 
-# OBJ = $(subst .c, .o, $(SRC))
-OBJ = $(addprefix $(OBJ_PATH)/, $$(SRC_NAME:.c=.o))
-LIBX = -L ./libft/ -lft -I/usr/local/include
+all: lib
+	@echo "\033[37;44m Make $(NAME) \033[0m"
+	@make $(NAME)
+	cp $(NAME) players
 
-all: $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(LIB) $(LIB_NAME) $^ -o $@
 
-$(NAME): $(LIBFT) $(OBJ)
-	@gcc $(LIBX) $(OBJ) -o $(NAME) 
-
-$(LIBFT):
-	@make -C ./libft/
-	
-$(addprefix $(OBJ_PATH)/, %.o): $(addprefix $(SRC_PATH)/, %.c)
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c $(INCLUDE)
 	@mkdir -p $(OBJ_PATH)
-	@gcc $(FLAG) -o $@ -c $^
+	$(CC) $(FLAG) $(INC) -o $@ -c $<
 
-compile:
-	gcc $(FLAG) -o $(NAME) $(SRC) ft_printf/libftprintf.a
-
+lib:
+	@echo "\033[37;44m Make libft \033[0m"
+	@make -C ./libft/
 
 clean:
-	rm -f $(OBJ)
+	rm -rf $(OBJ) $(OBJ_PATH)
 
-fclean:clean
+fclean: clean
 	rm -f $(NAME)
+	@make -C ./libft/ fclean
 
-re:	fclean all
- 
-.PHONY: all clean fclean re
+re: fclean all
+
+.PHONY: lib clean fclean re

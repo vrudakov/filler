@@ -123,32 +123,32 @@ filler/fast:
 	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/build
 .PHONY : filler/fast
 
-src/int_map.c.o: src/int_map.c.c.o
+src/int_map.o: src/int_map.c.o
 
-.PHONY : src/int_map.c.o
+.PHONY : src/int_map.o
 
 # target to build an object file
-src/int_map.c.c.o:
-	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/src/int_map.c.c.o
-.PHONY : src/int_map.c.c.o
+src/int_map.c.o:
+	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/src/int_map.c.o
+.PHONY : src/int_map.c.o
 
-src/int_map.c.i: src/int_map.c.c.i
+src/int_map.i: src/int_map.c.i
 
-.PHONY : src/int_map.c.i
+.PHONY : src/int_map.i
 
 # target to preprocess a source file
-src/int_map.c.c.i:
-	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/src/int_map.c.c.i
-.PHONY : src/int_map.c.c.i
+src/int_map.c.i:
+	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/src/int_map.c.i
+.PHONY : src/int_map.c.i
 
-src/int_map.c.s: src/int_map.c.c.s
+src/int_map.s: src/int_map.c.s
 
-.PHONY : src/int_map.c.s
+.PHONY : src/int_map.s
 
 # target to generate assembly for a file
-src/int_map.c.c.s:
-	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/src/int_map.c.c.s
-.PHONY : src/int_map.c.c.s
+src/int_map.c.s:
+	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/src/int_map.c.s
+.PHONY : src/int_map.c.s
 
 src/main.o: src/main.c.o
 
@@ -231,33 +231,6 @@ src/reading.c.s:
 	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/src/reading.c.s
 .PHONY : src/reading.c.s
 
-src/second.o: src/second.c.o
-
-.PHONY : src/second.o
-
-# target to build an object file
-src/second.c.o:
-	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/src/second.c.o
-.PHONY : src/second.c.o
-
-src/second.i: src/second.c.i
-
-.PHONY : src/second.i
-
-# target to preprocess a source file
-src/second.c.i:
-	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/src/second.c.i
-.PHONY : src/second.c.i
-
-src/second.s: src/second.c.s
-
-.PHONY : src/second.s
-
-# target to generate assembly for a file
-src/second.c.s:
-	$(MAKE) -f CMakeFiles/filler.dir/build.make CMakeFiles/filler.dir/src/second.c.s
-.PHONY : src/second.c.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -267,9 +240,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... filler"
-	@echo "... src/int_map.c.o"
-	@echo "... src/int_map.c.i"
-	@echo "... src/int_map.c.s"
+	@echo "... src/int_map.o"
+	@echo "... src/int_map.i"
+	@echo "... src/int_map.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
@@ -279,9 +252,6 @@ help:
 	@echo "... src/reading.o"
 	@echo "... src/reading.i"
 	@echo "... src/reading.s"
-	@echo "... src/second.o"
-	@echo "... src/second.i"
-	@echo "... src/second.s"
 .PHONY : help
 
 

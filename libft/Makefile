@@ -10,7 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
+SRC_PATH = ./src/
+OBJ_PATH = ./obj/
 NAME = libft.a
+
 SRCFLS = ft_atoi.c ft_memchr.c ft_strchr.c ft_strcpy.c ft_bzero.c ft_memcmp.c \
 ft_putendl.c ft_tolower.c ft_isalnum.c ft_memcpy.c ft_strcmp.c ft_strlcat.c \
 ft_toupper.c ft_isalpha.c ft_memcpy_rev.c ft_putnbr.c ft_strncpy.c ft_strlen.c \
@@ -22,20 +25,32 @@ ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c ft_strsplit.c \
 ft_itoa.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c \
 get_next_line.c 
-OBJECTS = $(subst .c,.o,$(SRCFLS))
+OBJECTS = $(SRCFLS:.c=.o)
 
-all: $(NAME)
+SRC = $(addprefix $(SRC_PATH),$(SRCFLS))
+OBJ = $(addprefix $(OBJ_PATH),$(OBJECTS))
+INC = $(addprefix -I,$(INC_PATH))
 
-$(NAME): $(OBJECTS) 
-	ar rc $(NAME) $(OBJECTS)
+CC = gcc
+FLAGS = -Wall -Wextra -Werror
 
-$(OBJECT): $(SRCFLS)
-	gcc -Wall -Wextra -Werror -c $(SRCFLS)
+all: init $(NAME)
+
+$(NAME): $(OBJ) 
+	ar rc $@ $^
+	ranlib $@
+
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c
+	@mkdir -p $(OBJ_PATH)
+	@$(CC) $(CFLAGS) $(INC) -o $@ -c $<
+
+.PHONY: init supp clean fclean re
 
 clean:
-	/bin/rm -f $(OBJECTS)
+	rm -f $(OBJ)
+	@rmdir $(OBJ_PATH) 2> /dev/null || echo "" > /dev/null
 
-fclean: clean
-	/bin/rm -f $(NAME)
+fclean: supp clean
+	rm -f $(NAME)
 
 re:	fclean all

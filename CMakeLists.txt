@@ -9,9 +9,8 @@ set(SOURCE_FILES
         includes/get_next_line.h
         src/main.c
         src/reading.c
-        src/second.c
         src/piece_serv.c
-        src/int_map.c.c)
+        src/int_map.c)
 
 add_executable(filler ${SOURCE_FILES})
 target_link_libraries(filler ${CMAKE_SOURCE_DIR}/libft/libft.a)

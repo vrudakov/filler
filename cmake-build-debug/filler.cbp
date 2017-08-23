@@ -88,7 +88,7 @@
 		<Unit filename="/nfs/2016/v/vrudakov/filler/includes/get_next_line.h">
 			<Option target="filler"/>
 		</Unit>
-		<Unit filename="/nfs/2016/v/vrudakov/filler/src/int_map.c.c">
+		<Unit filename="/nfs/2016/v/vrudakov/filler/src/int_map.c">
 			<Option target="filler"/>
 		</Unit>
 		<Unit filename="/nfs/2016/v/vrudakov/filler/src/main.c">
@@ -98,9 +98,6 @@
 			<Option target="filler"/>
 		</Unit>
 		<Unit filename="/nfs/2016/v/vrudakov/filler/src/reading.c">
-			<Option target="filler"/>
-		</Unit>
-		<Unit filename="/nfs/2016/v/vrudakov/filler/src/second.c">
 			<Option target="filler"/>
 		</Unit>
 		<Unit filename="/nfs/2016/v/vrudakov/filler/CMakeLists.txt">
